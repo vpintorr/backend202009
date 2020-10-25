@@ -13,7 +13,12 @@ El control de errores se ha hecho con Excepciones customizadas:
 
 Gestionadas mediante un @ControllerAdvice:
 
-- **CustomGlobalExceptionHandler** 
+- **CustomGlobalExceptionHandler**
+
+El proyecto tiene un fichero para cargar datos en la base de datos por si os es útil para probar el funcionamiento:
+
+- **src/main/resources/data.sql**
+
 
 
 #### Optional
@@ -41,7 +46,8 @@ Gestionadas mediante un @ControllerAdvice:
  
 	- Se ha creado la entidad *SubtaskEntity* y mediante las respectivas anotaciones @OneToMany y @ManyToOne es posible añadir, actualizar y eliminar subtasks a través del endpoint para la entidad TaskEntity. Por ejemplo con una petición post con el siguiente contenido:
 	
-	```
+	
+```
 	{
  "id":15,
  "description":"Esta es la description de la task 1",
