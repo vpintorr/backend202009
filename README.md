@@ -20,7 +20,7 @@ Gestionadas mediante un @ControllerAdvice:
 
 1. Improve the request that returns a list of tasks by adding the possibility to order and filter the results:
 
-	- Los resultados se pueden filtrar por campo mediante el operador & (implementado mediante Specifications). Por ejemplo:
+	- Los resultados se pueden filtrar por campos concatenando con el operador & (la implementación se ha realizado mediante Specifications). Por ejemplo:
     
     
     ```
@@ -29,7 +29,7 @@ Gestionadas mediante un @ControllerAdvice:
 	
 	
 	 
-	- Para el filtrado:
+	- Para el ordenado:
     
     
     ```
@@ -39,4 +39,25 @@ Gestionadas mediante un @ControllerAdvice:
     
 2. Create a new entity called *SubtaskEntity* that allows one task to have multiple subtasks:
  
-	- Se ha creado la entidad *SubtaskEntity* y mediante las respectivas anotaciones @OneToMany y @ManyToOne es posible añadir subtasks a una task a través de las peticiones con la entidad TaskEntity
+	- Se ha creado la entidad *SubtaskEntity* y mediante las respectivas anotaciones @OneToMany y @ManyToOne es posible añadir, actualizar y eliminar subtasks a través del endpoint para la entidad TaskEntity. Por ejemplo con una petición post con el siguiente contenido:
+	
+	```
+	{
+ "id":15,
+ "description":"Esta es la description de la task 1",
+ "completed":false,
+ "priority":"HIGH",
+  "subTasks": [{
+    "id":15,
+ 	"description":"Subtask 1 de la task 1 ",
+ 	"completed":false,
+ 	"priority":"HIGH"
+  },
+  {
+    "id":16,
+ 	"description":"Subtask 1 de la task 1 ",
+ 	"completed":true,
+ 	"priority":"LOW"
+  }]
+}
+```
